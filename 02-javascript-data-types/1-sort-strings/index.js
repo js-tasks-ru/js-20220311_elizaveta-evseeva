@@ -5,14 +5,17 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
+
     const comparator = (a, b) => a.localeCompare(b, ['ru', 'en'], {caseFirst: 'upper'});
     const sortedArray = arr.slice();
-    if(param === 'asc') {
+
+    if (param === 'asc') {
         sortedArray.sort(comparator);
-    } else if(param === 'desc') {
+    } else if (param === 'desc') {
         sortedArray.sort(comparator).reverse();
     } else {
         console.error(`Incorrect value of sorting order: ${param}. The order must be \'asc\' or \'desc'\.`);
     }
+    
     return sortedArray;
 }

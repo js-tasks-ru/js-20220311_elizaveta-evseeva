@@ -9,9 +9,9 @@ export const pick = (obj, ...fields) => {
     const entries = Object.entries(obj);
     const newEntries = new Map();
     
-    for (let i = 0; i < entries.length; i++) {
-        if (fields.includes(entries[i][0])) {
-            newEntries.set(entries[i][0], entries[i][1]);        
+    for(const entry of entries) {
+        if (fields.includes(entry[0])) {
+            newEntries.set(entry[0], entry[1]);        
         }
     }
 

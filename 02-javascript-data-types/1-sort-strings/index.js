@@ -7,15 +7,16 @@
 export function sortStrings(arr, param = 'asc') {
 
     const comparator = (a, b) => a.localeCompare(b, ['ru', 'en'], {caseFirst: 'upper'});
+    const reverseComparator = (a, b) => b.localeCompare(a, ['ru', 'en'], {caseFirst: 'upper'});
     const sortedArray = arr.slice();
 
     if (param === 'asc') {
         sortedArray.sort(comparator);
     } else if (param === 'desc') {
-        sortedArray.sort(comparator).reverse();
+        sortedArray.sort(reverseComparator);
     } else {
         console.error(`Incorrect value of sorting order: ${param}. The order must be \'asc\' or \'desc'\.`);
     }
-    
+
     return sortedArray;
 }
